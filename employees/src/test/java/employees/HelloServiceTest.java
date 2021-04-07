@@ -23,6 +23,11 @@ class HelloServiceTest {
         // assertTrue(result.startsWith("Hello Spring Bootcccc"));
 
         // AssertJ
-        assertThat(result).startsWith("Hello Spring Bootxxx");
+        assertThat(result).startsWith("Hello Spring Boot");
+    }
+
+    @Test
+    void sayHelloShort() {
+        assertThat(new HelloService().sayHello()).startsWith("Hello Spring Boot");
     }
 }
