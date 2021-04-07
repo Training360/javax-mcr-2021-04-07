@@ -16,6 +16,12 @@ public class HelloController {
     @RequestMapping("/hello")
     @ResponseBody
     public String sayHello() {
-        return helloService.sayHello();
+        String result = helloService.sayHello();
+        if (result != null) {
+            return "*** " + result;
+        }
+        else {
+            return "default";
+        }
     }
 }

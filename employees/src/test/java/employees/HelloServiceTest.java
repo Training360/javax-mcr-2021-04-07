@@ -13,14 +13,14 @@ class HelloServiceTest {
         // given - when - then
 
         // Given
-        var service = new HelloService();
+        HelloService service = new HelloService();
 
         // When
-        var result = service.sayHello();
+        String result = service.sayHello();
 
         // Then = assert
         // JUnit
-        // assertTrue(result.startsWith("Hello Spring Bootcccc"));
+        // assertTrue(result.startsWith("Hello Spring Boot"));
 
         // AssertJ
         assertThat(result).startsWith("Hello Spring Boot");
