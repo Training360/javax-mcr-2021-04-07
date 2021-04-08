@@ -1,8 +1,6 @@
 package employees;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -11,7 +9,4 @@ public class Employee {
 
     private String name;
 
-    public String getName() {
-        return name;
-    }
 }
