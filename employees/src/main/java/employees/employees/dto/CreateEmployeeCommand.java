@@ -12,8 +12,11 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class CreateEmployeeCommand {
 
-    @NotBlank(message = "The name can not be empty")
+//    @NotBlank(message = "The name can not be empty")
 //    @NotBlank
     @Schema(description = "name of the employee", example = "John Doe")
+//    @ValidName
+
+    @ValidName(message = "name must contains three words")
     private String name;
 }

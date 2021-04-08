@@ -26,6 +26,26 @@ Content-Type: application/json
   "name": "Jack Doe"
 }
 
+### With empty name
+
+POST http://localhost:8080/api/employees
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "   "
+}
+
+### With invalid name
+
+POST http://localhost:8080/api/employees
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "John"
+}
+
 ###
 
 PUT http://localhost:8080/api/employees/1
