@@ -1,9 +1,10 @@
 package employees.employees.controller;
 
-import employees.employees.service.CreateEmployeeCommand;
+import employees.employees.dto.CreateEmployeeCommand;
 import employees.employees.dto.EmployeeDto;
 import employees.employees.service.EmployeesService;
 import employees.employees.dto.UpdateEmployeeCommand;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,7 @@ public class EmployeesController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Operation(summary = "creates a new employee", description = "creates a new employee with the given name")
     public EmployeeDto createEmployee(@RequestBody CreateEmployeeCommand command) {
         return employeesService.createEmployee(command);
     }
