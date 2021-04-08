@@ -5,11 +5,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class CreateEmployeeCommand {
 
+    @NotBlank(message = "The name can not be empty")
+//    @NotBlank
     @Schema(description = "name of the employee", example = "John Doe")
     private String name;
 }
