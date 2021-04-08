@@ -1,12 +1,12 @@
-package employees;
+package employees.employees.controller;
 
+import employees.employees.dto.EmployeeNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.zalando.problem.Problem;
 import org.zalando.problem.Status;
 

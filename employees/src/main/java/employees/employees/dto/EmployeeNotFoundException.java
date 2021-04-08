@@ -1,4 +1,4 @@
-package employees;
+package employees.employees.dto;
 
 public class EmployeeNotFoundException extends RuntimeException {
 

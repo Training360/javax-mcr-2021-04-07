@@ -1,4 +1,4 @@
-package employees;
+package employees.hello.service;
 
 import org.springframework.stereotype.Service;
 

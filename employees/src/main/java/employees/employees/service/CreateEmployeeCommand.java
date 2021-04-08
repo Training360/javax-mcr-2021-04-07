@@ -1,4 +1,4 @@
-package employees;
+package employees.employees.service;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
