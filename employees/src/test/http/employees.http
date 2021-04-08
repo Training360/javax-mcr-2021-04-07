@@ -56,5 +56,16 @@ Content-Type: application/json
   "newName": "John John Doe"
 }
 
+### Modify with invalid name
+
+PUT http://localhost:8080/api/employees/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "newName": "John"
+}
+
+
 ###
 DELETE http://localhost:8080/api/employees/4

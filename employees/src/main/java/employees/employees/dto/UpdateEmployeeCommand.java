@@ -11,6 +11,7 @@ public class UpdateEmployeeCommand {
 
     private Long id;
 
+    @ValidName
     private String newName;
 
 }

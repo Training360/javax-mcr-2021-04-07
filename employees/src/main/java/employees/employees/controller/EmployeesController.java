@@ -39,7 +39,7 @@ public class EmployeesController {
 
     @PutMapping("/{id}")
     public EmployeeDto updateEmployee(@PathVariable("id") long id,
-                                      @RequestBody UpdateEmployeeCommand command) {
+                                      @Valid @RequestBody UpdateEmployeeCommand command) {
         command.setId(id);
         return employeesService.updateEmployee(command);
     }
