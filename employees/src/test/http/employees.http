@@ -69,3 +69,48 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:8080/api/employees/4
+
+### Actuators
+
+GET http://localhost:8080/actuator
+
+### Info
+
+GET http://localhost:8080/actuator/info
+
+### Health
+
+GET http://localhost:8080/actuator/health
+
+### Thread dump
+
+GET http://localhost:8080/actuator/threaddump
+
+###
+
+GET http://localhost:8080/actuator/beans
+
+###Trace
+
+GET http://localhost:8080/actuator/httptrace
+
+### Liqui
+
+GET http://localhost:8080/actuator/liquibase
+
+###
+
+POST http://localhost:8080/actuator/shutdown
+
+### Query logger
+
+GET http://localhost:8080/actuator/loggers/employees
+
+### Query logger
+
+POST  http://localhost:8080/actuator/loggers/employees
+Content-Type: application/json
+
+{
+  "configuredLevel": "INFO"
+}
