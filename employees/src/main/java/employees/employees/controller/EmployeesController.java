@@ -2,6 +2,7 @@ package employees.employees.controller;
 
 import employees.employees.dto.CreateEmployeeCommand;
 import employees.employees.dto.EmployeeDto;
+import employees.employees.dto.EmployeeWithAddressDto;
 import employees.employees.service.EmployeesService;
 import employees.employees.dto.UpdateEmployeeCommand;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,7 +27,7 @@ public class EmployeesController {
     }
 
     @GetMapping("/{id}")
-    public EmployeeDto findEmployeeById(@PathVariable("id") long id) {
+    public EmployeeWithAddressDto findEmployeeById(@PathVariable("id") long id) {
         return employeesService.findEmployeeById(id);
     }
 

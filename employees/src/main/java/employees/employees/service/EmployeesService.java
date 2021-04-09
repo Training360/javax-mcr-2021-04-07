@@ -1,13 +1,13 @@
 package employees.employees.service;
 
-import employees.employees.dto.CreateEmployeeCommand;
-import employees.employees.dto.EmployeeDto;
-import employees.employees.dto.EmployeeNotFoundException;
-import employees.employees.dto.UpdateEmployeeCommand;
+import employees.employees.dto.*;
 import employees.employees.entity.Employee;
+import employees.employees.gateway.AddressDto;
+import employees.employees.gateway.AddressesGateway;
 import employees.employees.repository.EmployeesRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.tomcat.jni.Address;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
@@ -26,16 +26,23 @@ public class EmployeesService {
 
     private EmployeesRepository employeesRepository;
 
+    private AddressesGateway addressesGateway;
+
     public List<EmployeeDto> listEmployees(Optional<String> prefix) {
         List<Employee> employees = employeesRepository.findAll();
         Type targetListType = new TypeToken<List<EmployeeDto>>() {}.getType();
         return modelMapper.map(employees, targetListType);
     }
 
-    public EmployeeDto findEmployeeById(long id) {
-        return modelMapper.map(employeesRepository
+    public EmployeeWithAddressDto findEmployeeById(long id) {
+        EmployeeWithAddressDto employee = modelMapper.map(employeesRepository
                 .findById(id)
-                .orElseThrow(() -> new EmployeeNotFoundException(id)), EmployeeDto.class);
+                .orElseThrow(() -> new EmployeeNotFoundException(id)), EmployeeWithAddressDto.class);
+
+        AddressDto address = addressesGateway.getAddressByName(employee.getName());
+        employee.setAddress(address);
+
+        return employee;
     }
 
     public EmployeeDto createEmployee(CreateEmployeeCommand command) {
