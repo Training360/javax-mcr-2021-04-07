@@ -1,5 +1,6 @@
 package employees.hello;
 
+import employees.hello.service.HelloProperties;
 import employees.hello.service.HelloService;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,9 @@ class HelloServiceTest {
         // given - when - then
 
         // Given
-        HelloService service = new HelloService();
+        HelloProperties properties = new HelloProperties();
+        properties.setMessage("Test Message");
+        HelloService service = new HelloService(properties);
 
         // When
         String result = service.sayHello();
@@ -23,11 +26,13 @@ class HelloServiceTest {
         // assertTrue(result.startsWith("Hello Spring Boot"));
 
         // AssertJ
-        assertThat(result).startsWith("Hello Spring Boot");
+        assertThat(result).startsWith("Test Message");
     }
 
     @Test
     void sayHelloShort() {
-        assertThat(new HelloService().sayHello()).startsWith("Hello Spring Boot");
+        HelloProperties properties = new HelloProperties();
+        properties.setMessage("Test Message");
+        assertThat(new HelloService(properties).sayHello()).startsWith("Test Message");
     }
 }
