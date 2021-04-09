@@ -6,6 +6,7 @@ import employees.employees.dto.EmployeeNotFoundException;
 import employees.employees.dto.UpdateEmployeeCommand;
 import employees.employees.entity.Employee;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class EmployeesService {
@@ -52,6 +54,8 @@ public class EmployeesService {
     }
 
     public EmployeeDto createEmployee(CreateEmployeeCommand command) {
+        log.info("Create employee");
+        log.debug("Create employee with name {}", command.getName());
         Employee employee = new Employee(idGenerator.incrementAndGet(), command.getName());
         employees.add(employee);
         return modelMapper.map(employee, EmployeeDto.class);
